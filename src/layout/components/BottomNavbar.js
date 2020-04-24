@@ -6,9 +6,9 @@ const navbar = props => {
         <nav className="bottom-navigation">
             <div>
                 <ul className="nav-links">
-                    <li className="nav-link">
+                    {/* <li className="nav-link">
                         <NavLink to="/calendar">Calendar</NavLink>
-                    </li>
+                    </li> */}
                     {/* <li className="nav-link">
                         <Link to="/#contact">Journal</Link>
                     </li> */}
@@ -18,9 +18,9 @@ const navbar = props => {
                     {/* <li className="nav-link">
                         <Link to="/#blog">Insights</Link>
                     </li> */}
-                    <li className="nav-link">
+                    {/* <li className="nav-link">
                         <NavLink to="/profile">Profile </NavLink>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </nav>

@@ -14,6 +14,7 @@ import Calendar from "./calendar/Calendar";
 import Profile from "./users/pages/Profile";
 
 const App = () => {
+    const currentUser = { first_name: "Lopè" };
     return (
         <Router>
             <Layout>
@@ -21,7 +22,9 @@ const App = () => {
                     <Route
                         exact
                         path="/"
-                        component={props => <Home {...props} />}
+                        component={props => (
+                            <Home {...props} user={currentUser} />
+                        )}
                     />
                     <Route
                         exact

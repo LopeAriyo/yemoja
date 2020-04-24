@@ -3,9 +3,9 @@ import CircularSlider from "react-circular-slider-svg";
 
 const CycleSlider = props => {
     return (
-        <div>
+        <div className="cycle-slider">
             <CircularSlider
-                size={300}
+                size={350}
                 // startAngle={330 / props.cycleLength}
                 endAngle={330}
                 minValue={1}

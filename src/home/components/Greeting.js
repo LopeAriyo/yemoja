@@ -26,7 +26,7 @@ class Greeting extends React.Component {
     }
 
     render() {
-        // const { first_name } = this.props.user;
+        const { first_name } = this.props.user;
         const currentDateTime = new Date();
         const timeOfDay = this.getTimeOfDay(currentDateTime);
 
@@ -34,7 +34,7 @@ class Greeting extends React.Component {
             <div className="greeting">
                 <div className="message">
                     <h4 id="time-of-day">{timeOfDay}, </h4>{" "}
-                    {/* <h4 id="user-name">{first_name}</h4> */}
+                    <h4 id="user-name">{first_name}</h4>
                 </div>
                 <div className="date">
                     {" "}

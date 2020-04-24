@@ -1,14 +1,14 @@
 import React from "react";
 
-import CycleSlider from "../components/CycleSlider";
-import Forecast from "../components/Forecast";
+import CycleWheel from "./CycleWheel";
+import Forecast from "./Forecast";
 
 const CurrentCycle = () => {
     return (
         <div className="cycle-container">
             <Forecast />
-            <CycleSlider />
-            <button>Enter Data</button>
+            <CycleWheel />
+            <button>Track Period</button>
         </div>
     );
 };
