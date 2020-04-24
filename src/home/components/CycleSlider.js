@@ -21,7 +21,7 @@ const CycleSlider = props => {
                     // onChange: v => props.setValue1(v),
                 }}
                 arcColor="#c5d6ed"
-                arcBackgroundColor="#233750"
+                arcBackgroundColor="rgb(82,95,113)"
             />
         </div>
     );

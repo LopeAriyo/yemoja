@@ -31,18 +31,19 @@ class Greeting extends React.Component {
         const timeOfDay = this.getTimeOfDay(currentDateTime);
 
         return (
-            <div>
-                {/* <SunIcon /> */}
-                <h4 className="light-text"> {timeOfDay}, </h4>
-                {/* <h4 className="white-text"> {first_name}</h4> */}
-                <h5 className="white-text">
+            <div className="greeting">
+                <div className="message">
+                    <h4 id="time-of-day">{timeOfDay}, </h4>{" "}
+                    {/* <h4 id="user-name">{first_name}</h4> */}
+                </div>
+                <div className="date">
                     {" "}
-                    <div>
+                    <h5>
                         <Moment format="dddd," />
                         <br></br>
                         <Moment format="DD MMMM" />
-                    </div>
-                </h5>
+                    </h5>
+                </div>
             </div>
         );
     }

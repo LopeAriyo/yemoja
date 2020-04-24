@@ -5,7 +5,7 @@ import Forecast from "../components/Forecast";
 
 const CurrentCycle = () => {
     return (
-        <div>
+        <div className="cycle-container">
             <Forecast />
             <CycleSlider />
             <button>Enter Data</button>

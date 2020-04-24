@@ -6,6 +6,7 @@ import CurrentCycle from "../components/CurrentCycle";
 const Home = () => {
     return (
         <div>
+            {/* <BackgroundIcon /> */}
             <Greeting />
             <CurrentCycle />
         </div>
