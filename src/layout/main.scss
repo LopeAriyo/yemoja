@@ -1,8 +1,10 @@
 // Layout
 // @import "assets/sass/header";
 // @import "assets/sass/sidenavbar";
-@import "assets/sass/footer";
-@import "assets/sass/bottomnavbar";
+@import "assets/sass/navigation/footer";
+@import "assets/sass/navigation/sidedrawer";
+@import "assets/sass/navigation/mainnavigation";
+@import "assets/sass/navigation/navlinks";
 
 //Pages
 @import "../home/assets/sass/home.scss";
@@ -52,6 +54,15 @@ body {
     font-size: 1rem;
     background-color: #233750;
     color: #fff;
+}
+
+main {
+    @media (max-width: 768px) {
+        margin-left: 0;
+    }
+    @media (min-width: 769px) {
+        margin-left: 25vw;
+    }
 }
 
 .container {

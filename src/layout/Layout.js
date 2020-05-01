@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-// import Header from "./components/Header";
-import Footer from "./components/Footer";
+import SideDrawer from "./components/navigation/SideDrawer";
+import Footer from "./components/navigation/Footer";
 
 class Layout extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <Header /> */}
-                <div className="wrapper">{this.props.children}</div>
+                <SideDrawer />
+                <main>{this.props.children}</main>
                 <Footer />
             </React.Fragment>
         );
