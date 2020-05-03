@@ -3,12 +3,18 @@ import React from "react";
 import CycleWheel from "./CycleWheel";
 import Forecast from "./Forecast";
 
-const CurrentCycle = () => {
+const CurrentCycle = props => {
     return (
         <div className="cycle-container">
             <Forecast />
-            <CycleWheel />
-            <button>Track Period</button>
+            <CycleWheel
+                periodLength={props.periodLength}
+                cycleLength={props.cycleLength}
+            />
+            <button>Enter Today's Data</button>
+            <p>No data for today</p>
+            {/* <button>Modify Today's Data</button>
+            <p>There is already data for today</p> */}
         </div>
     );
 };

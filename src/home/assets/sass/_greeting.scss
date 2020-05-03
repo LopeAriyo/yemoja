@@ -1,9 +1,10 @@
 .greeting {
     text-align: center;
 
-    margin .message {
+    .message {
         margin: 5px;
         padding: 5px;
+        font-size: 2.25rem;
 
         #time-of-day {
             color: #c5d6ed;
@@ -13,5 +14,6 @@
     .date {
         margin: 5px;
         padding: 5px;
+        font-size: 1.5rem;
     }
 }

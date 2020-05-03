@@ -4,7 +4,7 @@ import React from "react";
 class Profile extends React.Component {
     render() {
         const { first_name, last_name, email } = this.props.user;
-        const { signOut } = this.props;
+        // const { signOut } = this.props;
 
         return (
             <main>
@@ -18,7 +18,10 @@ class Profile extends React.Component {
                 <button className="light-btn normal-btn">
                     <p className="normal-text dark-text"> Edit</p>
                 </button>
-                <button onClick={signOut} className="dark-btn normal-btn">
+                <button
+                    // onClick={signOut}
+                    className="dark-btn normal-btn"
+                >
                     <p className="normal-text light-text"> Sign Out</p>
                 </button>
             </main>

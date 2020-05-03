@@ -14,7 +14,13 @@ import Calendar from "./calendar/Calendar";
 import Profile from "./users/pages/Profile";
 
 const App = () => {
-    const currentUser = { first_name: "Lopè" };
+    const currentUser = {
+        first_name: "Lopè",
+        last_name: "Ariyo",
+        email: "lopeariyo@faker.com",
+        estimated_period_length: 5,
+        estimated_cycle_length: 30,
+    };
     return (
         <Router>
             <Layout>
@@ -34,7 +40,9 @@ const App = () => {
                     <Route
                         exact
                         path="/profile"
-                        component={props => <Profile {...props} />}
+                        component={props => (
+                            <Profile {...props} user={currentUser} />
+                        )}
                     />
                     <Redirect to="/" />
                 </Switch>
