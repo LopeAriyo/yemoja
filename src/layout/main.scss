@@ -1,8 +1,7 @@
 // Layout
-// @import "assets/sass/header";
-// @import "assets/sass/sidenavbar";
+@import "assets/sass/navigation/header";
 @import "assets/sass/navigation/footer";
-@import "assets/sass/navigation/sidedrawer";
+@import "assets/sass/navigation/topdrawer";
 @import "assets/sass/navigation/mainnavigation";
 @import "assets/sass/navigation/navlinks";
 
@@ -57,12 +56,7 @@ body {
 }
 
 main {
-    @media (max-width: 768px) {
-        margin-left: 0;
-    }
-    @media (min-width: 769px) {
-        margin-left: 25vw;
-    }
+    margin-top: 5rem;
 }
 
 .container {

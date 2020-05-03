@@ -1,18 +1,18 @@
-.footer {
+.top-drawer {
     position: fixed;
-    bottom: 0;
+    top: 4rem;
     left: 0;
     width: 100vw;
-    height: 4rem;
+    height: 80%;
     background-color: #28415a;
+    border-radius: 0 0 40px 40px;
 
     display: flex;
     align-items: center;
 
-    padding: 0 1rem;
-    z-index: 50;
+    z-index: 100;
 
-    @media (min-width: 769px) {
+    @media (max-width: 768px) {
         display: none;
     }
 }

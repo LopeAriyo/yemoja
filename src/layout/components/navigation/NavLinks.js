@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavLinks = () => {
+const NavLinks = props => {
     return (
-        <div>
+        <nav className="main-navigation">
             <ul className="nav-links">
                 <li className="nav-link">
                     <NavLink to="/calendar">Calendar</NavLink>
@@ -12,7 +12,9 @@ const NavLinks = () => {
                         <Link to="/#contact">Journal</Link>
                     </li> */}
                 <li className="nav-link">
-                    <NavLink to="/">Home </NavLink>
+                    <NavLink to="/" exact>
+                        Home
+                    </NavLink>
                 </li>
                 {/* <li className="nav-link">
                         <Link to="/#blog">Insights</Link>
@@ -21,7 +23,7 @@ const NavLinks = () => {
                     <NavLink to="/profile">Profile </NavLink>
                 </li>
             </ul>
-        </div>
+        </nav>
     );
 };
 
