@@ -1,18 +1,19 @@
 import React from "react";
-// import Navbar from "./BottomNavbar";
 
 const Header = props => (
     <header className="header">
-        {/* <Navbar handleSideNavBarOpen={props.handleSideNavBarClick} /> */}
-        {/* <SideNavbar
-            sideNavBarVisible={props.sideNavBarVisible}
-            handleSideNavBarClose={props.handleSideNavBarClick}
-        /> */}
-        <div className="menu-btn">
-            <span />
-            <span />
-            <span />
-        </div>
+        {props.isDrawerOpen ? (
+            <button className="menu-btn" onClick={props.handleClose}>
+                <span />
+                <span />
+            </button>
+        ) : (
+            <button className="menu-btn" onClick={props.handleOpen}>
+                <span />
+                <span />
+                <span />
+            </button>
+        )}
         <div className="spacer"></div>
         <h3 className="page-title">Page Title</h3>
         <div className="spacer"></div>
