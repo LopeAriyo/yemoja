@@ -2,7 +2,12 @@
 @import "cycleslider";
 
 .cycle-wheel {
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-areas:
+        "bt bt bt"
+        "bl wheel br"
+        "bb bb bb";
     // grid-column-gap: 10px;
+    justify-items: center;
+    align-items: center;
 }

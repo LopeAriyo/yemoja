@@ -5,7 +5,7 @@ const CycleSlider = props => {
     return (
         <div className="cycle-slider">
             <CircularSlider
-                size={350}
+                size={265}
                 startAngle={330 / props.cycleLength}
                 endAngle={330}
                 minValue={1}

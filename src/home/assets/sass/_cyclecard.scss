@@ -1,9 +1,10 @@
 .cycle-card {
-    position: fixed;
-    left: 17.5%;
-    top: 17.5%;
-    width: 245px;
-    height: 245px;
+    grid-area: wheel;
+    // position: fixed;
+    // left: 17.5%;
+    // top: 17.5%;
+    width: 185px;
+    height: 185px;
     background: linear-gradient(180deg, #c5d6ed 0%, #e6ebf5 100%);
     border-radius: 50%;
     display: flex;
@@ -11,6 +12,7 @@
     color: #28415a;
     padding: 0;
     margin: 0;
+    z-index: 5;
     h1 {
         margin: 0;
     }

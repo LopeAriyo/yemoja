@@ -3,7 +3,7 @@ import React from "react";
 import CycleWheel from "./CycleWheel";
 import Forecast from "./Forecast";
 
-const CurrentCycle = props => {
+const CycleContainer = props => {
     return (
         <div className="cycle-container">
             <Forecast />
@@ -19,4 +19,4 @@ const CurrentCycle = props => {
     );
 };
 
-export default CurrentCycle;
+export default CycleContainer;
