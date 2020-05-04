@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 import TopDrawer from "./components/navigation/TopDrawer";
 import Header from "./components/navigation/Header";
@@ -24,7 +24,7 @@ const Layout = props => {
                 handleClose={closeDrawer}
             />
             {isDrawerOpen && (
-                <TopDrawer>
+                <TopDrawer handleClose={closeDrawer}>
                     <NavLinks />
                 </TopDrawer>
             )}

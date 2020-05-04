@@ -21,6 +21,7 @@ const App = () => {
         estimated_period_length: 5,
         estimated_cycle_length: 30,
     };
+
     return (
         <Router>
             <Layout>
