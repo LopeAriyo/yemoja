@@ -39,9 +39,7 @@ class Greeting extends React.Component {
                 <div className="date">
                     {" "}
                     <h5>
-                        <Moment format="dddd," />
-                        <br></br>
-                        <Moment format="DD MMMM" />
+                        <Moment format="dddd, DD MMMM" />
                     </h5>
                 </div>
             </div>
