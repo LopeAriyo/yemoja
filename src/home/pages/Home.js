@@ -9,9 +9,9 @@ const Home = props => {
             {/* <BackgroundIcon /> */}
             <Greeting user={props.user} />
             <CycleContainer
-                cycles={["cycle1", "cycle2"]}
+                currentCycle={props.currentCycle}
                 periodLength={props.user.estimated_period_length}
-                cycleLength={props.user.estimated_cycle_length}
+                estimatedCycleLength={props.user.estimated_cycle_length}
             />
         </main>
     );
