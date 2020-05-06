@@ -170,6 +170,24 @@ class CycleContainer extends React.Component {
         }
     };
 
+    isTrackable = (cycleDay, cycle) => {
+        const activeCycleDay = Math.floor(cycleDay);
+        if (cycle[activeCycleDay]) {
+            let date1 = new Date();
+            let date2 = new Date(
+                cycle[activeCycleDay - 1].referenceDate.year,
+                cycle[activeCycleDay - 1].referenceDate.month - 1,
+                cycle[activeCycleDay - 1].referenceDate.day
+            );
+
+            if (date1.toDateString() === date2.toDateString()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
     componentDidMount() {
         this.getCycleDay()
             .then(() => this.getActualLengths())
@@ -202,8 +220,24 @@ class CycleContainer extends React.Component {
                     periodArray={this.state.periodArray}
                     getCycleDayDate={this.getCycleDayDate}
                 />
-                {/* <button>Start New Cycle</button>
-                <p></p> */}
+                <button
+                    className="tracking-button"
+                    disabled={
+                        !this.isTrackable(
+                            this.state.cycleDay,
+                            this.state.cycleArray
+                        )
+                    }
+                >
+                    {this.isTrackable(
+                        this.state.cycleDay,
+                        this.state.cycleArray
+                    ) === true ? (
+                        <p>Enter today's data</p>
+                    ) : (
+                        <p>You can only input data for today</p>
+                    )}
+                </button>
             </div>
         );
     }

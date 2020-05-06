@@ -57,6 +57,14 @@ body {
 
 main {
     margin-top: 5rem;
+    height: 100vh;
+
+    @media (max-height: 568px) {
+        height: 110vh;
+    }
+    @media (min-height: 736px) {
+        height: 80vh;
+    }
 }
 
 .container {
