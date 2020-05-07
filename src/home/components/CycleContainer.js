@@ -219,25 +219,8 @@ class CycleContainer extends React.Component {
                     cycleArray={this.state.cycleArray}
                     periodArray={this.state.periodArray}
                     getCycleDayDate={this.getCycleDayDate}
+                    isTrackable={this.isTrackable}
                 />
-                <button
-                    className="tracking-button"
-                    disabled={
-                        !this.isTrackable(
-                            this.state.cycleDay,
-                            this.state.cycleArray
-                        )
-                    }
-                >
-                    {this.isTrackable(
-                        this.state.cycleDay,
-                        this.state.cycleArray
-                    ) === true ? (
-                        <p>Enter today's data</p>
-                    ) : (
-                        <p>You can only input data for today</p>
-                    )}
-                </button>
             </div>
         );
     }
