@@ -1,8 +1,21 @@
-App
+<p align="center">
+  <a href="https://www.lopeariyo.dev/ ">
+    <img alt="Lope Logo" src="https://pbs.twimg.com/profile_images/1248697046883762176/A80erP3V_400x400.png" width="120" />
+  </a>
+</p>
+<h1 align="center">
+  Yemoja - Period Tracking App 
+</h1>
 
-Demo
+## App
 
-Features
+Visit -- for live application
+
+## Video Demo
+
+A preview of all current functionality is here
+
+## Features
 
 -   Users can signup, signin and signout
 -   Users can edit their details
@@ -14,11 +27,10 @@ Features
 -   Users can delete a period entry
 -   Users can delete a cycle
 
-Technologies
+## Technologies
 
 -   MongoDB
 -   Express
 -   React (including Hooks )
 -   Node.js
 -   CSS & SaSS
--
