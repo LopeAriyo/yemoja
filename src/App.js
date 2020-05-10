@@ -1,14 +1,10 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
 
 import Layout from "./layout/Layout";
 import "./layout/main.scss";
 
+import RouteWithTitle from "./layout/components/navigation/RouteWithTitle";
 import Home from "./home/pages/Home";
 import Calendar from "./calendar/Calendar";
 import Profile from "./users/pages/Profile";
@@ -73,8 +69,9 @@ const App = () => {
         <Router>
             <Layout>
                 <Switch>
-                    <Route
-                        exact
+                    <RouteWithTitle
+                        title={"Cycle"}
+                        exact={true}
                         path="/"
                         component={props => (
                             <Home
@@ -84,16 +81,24 @@ const App = () => {
                             />
                         )}
                     />
-                    <Route
-                        exact
+                    <RouteWithTitle
+                        title={"Calendar"}
+                        exact={true}
                         path="/calendar"
-                        component={props => <Calendar {...props} />}
+                        component={props => (
+                            <Calendar {...props} pageTitle={"Calendar"} />
+                        )}
                     />
-                    <Route
-                        exact
+                    <RouteWithTitle
+                        title={"Profile"}
+                        exact={true}
                         path="/profile"
                         component={props => (
-                            <Profile {...props} user={currentUser} />
+                            <Profile
+                                {...props}
+                                user={currentUser}
+                                pageTitle={"Profile"}
+                            />
                         )}
                     />
                     <Redirect to="/" />

@@ -28,7 +28,6 @@ const Layout = props => {
                     <NavLinks />
                 </TopDrawer>
             )}
-
             {props.children}
             <Footer>
                 <NavLinks />

@@ -31,6 +31,6 @@ A preview of all current functionality is here
 
 -   MongoDB
 -   Express
--   React (including Hooks )
+-   React (including Hooks in some places )
 -   Node.js
 -   CSS & SaSS
