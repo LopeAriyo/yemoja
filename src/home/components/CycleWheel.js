@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+
 import CycleSlider from "./CycleSlider";
 import CycleCard from "./CycleCard";
 import Modal from "../../layout/components/modal/Modal";
+
+import NewPeriod from "./forms/NewPeriod";
 
 const CycleWheel = props => {
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -17,7 +20,9 @@ const CycleWheel = props => {
     return (
         <React.Fragment>
             {isFormOpen && (
-                <Modal handleClose={handleFormClose} headerTitle={"Track"} />
+                <Modal handleClose={handleFormClose} headerTitle={"Track"}>
+                    <NewPeriod />
+                </Modal>
             )}
             <div className="cycle-wheel">
                 <CycleSlider

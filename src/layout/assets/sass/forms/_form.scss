@@ -1,0 +1,85 @@
+@import "input";
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    width: 100vw;
+    height: 85vh;
+    padding: 0.5rem 1rem;
+
+    .form-content {
+        display: flex;
+        flex-direction: inherit;
+        margin-top: 0;
+        align-content: center;
+        justify-content: space-evenly;
+    }
+
+    .question {
+        width: inherit;
+        display: flex;
+        flex-direction: inherit;
+        align-items: center;
+    }
+
+    .question-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    .instruction {
+        font-size: 0.7rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .question-options {
+        height: 100px;
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .question-option {
+        height: 100%;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .form-footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-button {
+        border: 2px;
+        border-style: solid;
+        border-color: #ffffff;
+        background: transparent;
+        color: #ffffff;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &:disabled {
+            // background: #eeeeee 0%, #e6ebf5 100%);
+            cursor: auto;
+            color: grey;
+        }
+    }
+}

@@ -15,16 +15,7 @@ const Modal = props => {
                     X
                 </div>
             </header>
-            <form
-                onSumbit={
-                    props.onSumbit
-                        ? props.onSumbit
-                        : event => event.preventDefault
-                }
-            >
-                <div className={"content"}>{props.children}</div>
-                <footer className={"footer"}></footer>
-            </form>
+            {props.children}
         </div>
     );
     return ReactDOM.createPortal(
