@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Calendar = () => {
     return <main>This is the calendar page</main>;

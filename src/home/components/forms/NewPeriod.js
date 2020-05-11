@@ -85,35 +85,6 @@ class NewPeriod extends Component {
                 });
             }
 
-            // this.state.formData[event.target.name] &&
-            // this.state.formData[event.target.name].findIndex(
-            //     answer => answer === value
-            // )
-            //     ? // we want to to know if there is an element that has this value already
-            //       //
-            //       this.setState({
-            //           //remove from state
-            //           formData: {
-            //               ...this.state.formData,
-            //               [event.target.name]: [
-            //                   ...this.state.formData[event.target.name],
-            //                   "value removed",
-            //               ],
-            //               //if the option has already has been checked, uncheck it
-            //           },
-            //       })
-            //     : this.setState({
-            //           //add a new value to state
-            //           formData: {
-            //               ...this.state.formData,
-            //               [event.target.name]: [
-            //                   ...this.state.formData[event.target.name],
-            //                   value,
-            //               ],
-            //               //if the question already has an option or other options checked, spread the question and include the new option
-            //           },
-            //       });
-
             return;
         }
         this.setState({
@@ -127,7 +98,6 @@ class NewPeriod extends Component {
     handleSubmit = event => {
         event.preventDefault();
         console.log("I've been submitted");
-        this.setState({ formData: {} });
     };
 
     handleReset = event => {
@@ -169,6 +139,9 @@ class NewPeriod extends Component {
         );
     }
 }
+
+//TODO
+//+ change to use hooks
 
 // const NewPeriod = props => {
 //     const newPeriodQuestions = [
