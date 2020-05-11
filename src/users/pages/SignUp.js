@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom/";
 
-import SignUpForm from "../components/SignUpForm.js";
+// import SignUpForm from "../components/SignUpForm.js";
 
 //TODO - STRETCH
 //+ Add sign in with socials functionality
@@ -11,7 +11,7 @@ const SignUp = ({ signUp, history }) => (
         <br />
         <h5>Create your account</h5>
         <br />
-        <SignUpForm history={history} />
+        {/* <SignUpForm history={history} /> */}
         {/* <p>-OR-</p>
                 <SignUpWithSocials /> */}
         {/* By signing up you accept the Terms of Service and Our Privacy Policy*/}

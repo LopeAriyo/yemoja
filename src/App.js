@@ -9,7 +9,12 @@ import Home from "./home/pages/Home";
 import Calendar from "./calendar/Calendar";
 import Profile from "./users/pages/Profile";
 
+import Welcome from "./users/pages/Welcome";
+import SignIn from "./users/pages/SignIn";
+import SignUp from "./users/pages/SignUp";
+
 const App = () => {
+    // const currentUser = null;
     const currentUser = {
         id: 1,
         first_name: "Lopè",
@@ -67,43 +72,51 @@ const App = () => {
 
     return (
         <Router>
-            <Layout>
+            {currentUser ? (
+                <Layout>
+                    <Switch>
+                        <RouteWithTitle
+                            title={"Home"}
+                            exact={true}
+                            path="/"
+                            component={props => (
+                                <Home
+                                    {...props}
+                                    user={currentUser}
+                                    currentCycle={currentCycle}
+                                />
+                            )}
+                        />
+                        <RouteWithTitle
+                            title={"Calendar"}
+                            exact={true}
+                            path="/calendar"
+                            component={props => (
+                                <Calendar {...props} pageTitle={"Calendar"} />
+                            )}
+                        />
+                        <RouteWithTitle
+                            title={"Profile"}
+                            exact={true}
+                            path="/profile"
+                            component={props => (
+                                <Profile
+                                    {...props}
+                                    user={currentUser}
+                                    pageTitle={"Profile"}
+                                />
+                            )}
+                        />
+                        <Redirect to="/" />
+                    </Switch>
+                </Layout>
+            ) : (
                 <Switch>
-                    <RouteWithTitle
-                        title={"Cycle"}
-                        exact={true}
-                        path="/"
-                        component={props => (
-                            <Home
-                                {...props}
-                                user={currentUser}
-                                currentCycle={currentCycle}
-                            />
-                        )}
-                    />
-                    <RouteWithTitle
-                        title={"Calendar"}
-                        exact={true}
-                        path="/calendar"
-                        component={props => (
-                            <Calendar {...props} pageTitle={"Calendar"} />
-                        )}
-                    />
-                    <RouteWithTitle
-                        title={"Profile"}
-                        exact={true}
-                        path="/profile"
-                        component={props => (
-                            <Profile
-                                {...props}
-                                user={currentUser}
-                                pageTitle={"Profile"}
-                            />
-                        )}
-                    />
-                    <Redirect to="/" />
+                    <Welcome />
+                    <SignIn />
+                    <SignUp />
                 </Switch>
-            </Layout>
+            )}
         </Router>
     );
 };
