@@ -6,16 +6,21 @@ const Input = props => {
             props.type === "radio" || "checkbox" ? (
                 <div className="question-options" id={props.id}>
                     {props.options.map(option => (
-                        <div className="question-option">
+                        <label key={option.id} className="question-option">
                             <input
+                                name={props.id}
                                 type={props.type}
-                                key={option.id}
-                                id={option.id}
-                                name={option.name}
-                                value={option.value}
+                                value={option.id}
+                                checked={
+                                    props.formData[props.id]
+                                        ? props.formData[props.id].includes(
+                                              option.id
+                                          )
+                                        : false
+                                }
                             />
-                            <label htmlFor={option.id}>{option.name}</label>
-                        </div>
+                            <p>{option.name}</p>
+                        </label>
                     ))}
                 </div>
             ) : (
@@ -35,7 +40,7 @@ const Input = props => {
         );
 
     return (
-        <div className="question">
+        <div key={props.id} className="question">
             <label className="question-label" htmlFor={props.id}>
                 {props.label}
             </label>

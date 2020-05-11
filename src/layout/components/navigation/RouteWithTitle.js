@@ -9,6 +9,10 @@ class RouteWithTitle extends Component {
         ).innerText = this.props.title);
     }
 
+    componentDidMount() {
+        this.setPageTitle();
+    }
+
     componentDidUpdate() {
         this.setPageTitle();
     }
