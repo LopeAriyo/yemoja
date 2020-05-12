@@ -80,7 +80,7 @@ class SignInForm extends React.Component {
                     {/* <p> Forgot Password? </p> */}
                     <br />
                     <button
-                        className="light-btn normal-btn"
+                        className="primary-btn"
                         disabled={isDisabled}
                         onClick={handleSubmit}
                     >

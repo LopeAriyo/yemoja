@@ -182,7 +182,7 @@ class SignUpForm extends React.Component {
                     />
                     <br />
                     <button
-                        className="dark-btn normal-btn"
+                        className="primary-btn"
                         disabled={isDisabled}
                         onClick={handleSubmit}
                     >
