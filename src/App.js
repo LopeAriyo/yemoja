@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+} from "react-router-dom";
 
 import Layout from "./layout/Layout";
 import "./layout/main.scss";
@@ -14,15 +19,15 @@ import SignIn from "./users/pages/SignIn";
 import SignUp from "./users/pages/SignUp";
 
 const App = () => {
-    // const currentUser = null;
-    const currentUser = {
-        id: 1,
-        first_name: "Lopè",
-        last_name: "Ariyo",
-        email: "lopeariyo@faker.com",
-        estimated_period_length: 5,
-        estimated_cycle_length: 30,
-    };
+    const currentUser = null;
+    // const currentUser = {
+    //     id: 1,
+    //     first_name: "Lopè",
+    //     last_name: "Ariyo",
+    //     email: "lopeariyo@faker.com",
+    //     estimated_period_length: 5,
+    //     estimated_cycle_length: 30,
+    // };
 
     const currentCycle = {
         id: 4,
@@ -112,9 +117,19 @@ const App = () => {
                 </Layout>
             ) : (
                 <Switch>
-                    <Welcome />
-                    <SignIn />
-                    <SignUp />
+                    <Route
+                        exact
+                        path="/"
+                        component={props => <Welcome {...props} />}
+                    />
+                    <Route
+                        path="/signup"
+                        component={props => <SignUp {...props} />}
+                    />
+                    <Route
+                        path="/signin"
+                        component={props => <SignIn {...props} />}
+                    />
                 </Switch>
             )}
         </Router>

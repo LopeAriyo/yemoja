@@ -7,7 +7,7 @@ import { Link } from "react-router-dom/";
 //+ Add sign in with socials functionality
 
 const SignIn = ({ signIn, history }) => (
-    <div className="SignIn">
+    <div className="starter-page">
         <br />
         <h5>Welcome back </h5>
         <br />
