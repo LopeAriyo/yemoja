@@ -1,12 +1,14 @@
 import React from "react";
-import API from "../adapters/API";
+
+import Input from "../../layout/components/forms/Input";
+// import API from "../adapters/API";
 
 //TODO
 //+ Add forgot password functionality
 class SignInForm extends React.Component {
     state = {
         email: "",
-        password: ""
+        password: "",
     };
 
     handleChange = event =>
@@ -18,7 +20,7 @@ class SignInForm extends React.Component {
 
         return {
             email: emailValidation,
-            password: passwordValidation
+            password: passwordValidation,
         };
     };
 
@@ -36,13 +38,13 @@ class SignInForm extends React.Component {
             return;
         }
 
-        API.signIn(this.state.email, this.state.password)
-            .then(data => {
-                if (data.error) throw Error(data.error);
-                this.props.signIn(data);
-                this.props.history.push("/cycle");
-            })
-            .catch(error => alert(error));
+        // API.signIn(this.state.email, this.state.password)
+        //     .then(data => {
+        //         if (data.error) throw Error(data.error);
+        //         this.props.signIn(data);
+        //         this.props.history.push("/cycle");
+        //     })
+        //     .catch(error => alert(error));
     };
 
     render() {
@@ -55,32 +57,25 @@ class SignInForm extends React.Component {
         return (
             <div>
                 <form>
-                    <input
+                    <Input
+                        element="input"
+                        type="text"
                         id="emailInput"
                         name="email"
-                        className={
-                            errors.email
-                                ? "error full-length-input"
-                                : "full-length-input"
-                        }
                         placeholder="E-Mail Address"
-                        type="text"
                         value={email}
                         onChange={handleChange}
+                        className={errors.email && "error "}
                     />
-                    <br />
-                    <input
+                    <Input
+                        element="input"
+                        type="password"
                         id="passwordInput"
                         name="password"
-                        className={
-                            errors.password
-                                ? "error full-length-input"
-                                : "full-length-input"
-                        }
                         placeholder="Password"
-                        type="password"
                         value={password}
                         onChange={handleChange}
+                        className={errors.password && "error "}
                     />
                     {/* <p> Forgot Password? </p> */}
                     <br />

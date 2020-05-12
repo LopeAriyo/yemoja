@@ -3,7 +3,7 @@ import React from "react";
 const Input = props => {
     const element =
         props.element === "input" ? (
-            props.type === "radio" || "checkbox" ? (
+            props.type === "radio" || props.type === "checkbox" ? (
                 <div className="question-options" id={props.id}>
                     {props.options.map(option => (
                         <label key={option.id} className="question-option">
@@ -29,6 +29,7 @@ const Input = props => {
                     type={props.type}
                     placeholder={props.placeholder}
                     onChange={props.handleChange}
+                    className={props.className}
                 />
             )
         ) : (

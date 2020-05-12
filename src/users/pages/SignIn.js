@@ -1,22 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom/";
+import SignPage from "./SignPage";
 
-// import SignInForm from "../components/SignInForm";
+import SignInForm from "../components/SignInForm";
 
 //TODO - STRETCH
 //+ Add sign in with socials functionality
 
 const SignIn = ({ signIn, history }) => (
     <div className="starter-page">
-        <br />
-        <h5>Welcome back </h5>
-        <br />
-        {/* <SignInForm signIn={signIn} history={history} /> */}
-        {/* <p>-OR-</p>
-                <SignInWithSocials /> */}
-        <p className="grey-text">
-            Don't have an account? <Link to="/signup">Sign Up</Link>
-        </p>
+        <SignPage
+            pageTitle="Welcome back"
+            form={<SignInForm signIn={signIn} history={history} />}
+            altPrompt="Don't have an account? "
+            altInstruction="Sign Up"
+            altSlug="/signup"
+        />
     </div>
 );
 

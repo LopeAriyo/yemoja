@@ -1,6 +1,7 @@
 import React from "react";
 
-import API from "../adapters/API";
+import Input from "../../layout/components/forms/Input";
+// import API from "../adapters/API";
 
 class SignUpForm extends React.Component {
     state = {
@@ -8,7 +9,7 @@ class SignUpForm extends React.Component {
         lastName: "",
         email: "",
         password: "",
-        passwordConfirmation: ""
+        passwordConfirmation: "",
     };
 
     handleChange = event =>
@@ -50,7 +51,7 @@ class SignUpForm extends React.Component {
             lastName: lastNameValidation,
             email: emailValidation,
             password: passwordValidation,
-            passwordConfirmation: passwordConfirmationValidation
+            passwordConfirmation: passwordConfirmationValidation,
         };
     };
 
@@ -60,7 +61,7 @@ class SignUpForm extends React.Component {
             lastName,
             email,
             password,
-            passwordConfirmation
+            passwordConfirmation,
         } = this.state;
 
         const errors = this.validate(
@@ -85,14 +86,14 @@ class SignUpForm extends React.Component {
             last_name: this.state.lastName,
             email: this.state.email,
             password: this.state.password,
-            passwordConfirmation: this.state.passwordConfirmation
+            passwordConfirmation: this.state.passwordConfirmation,
         };
 
-        API.signUp(newUser)
-            .then(data => {
-                if (data.error) throw Error(data.error);
-            })
-            .catch(error => alert(error));
+        // API.signUp(newUser)
+        //     .then(data => {
+        //         if (data.error) throw Error(data.error);
+        //     })
+        //     .catch(error => alert(error));
         alert(`Signed Up`);
     };
 
@@ -102,7 +103,7 @@ class SignUpForm extends React.Component {
             lastName,
             email,
             password,
-            passwordConfirmation
+            passwordConfirmation,
         } = this.state;
 
         const { handleChange, handleSubmit } = this;
@@ -119,70 +120,65 @@ class SignUpForm extends React.Component {
         return (
             <div>
                 <form>
-                    <input
-                        id="firstNameInput"
-                        name="firstName"
-                        className={
-                            errors.firstName
-                                ? "error half-length-input"
-                                : "half-length-input"
-                        }
-                        placeholder="Enter First Name"
-                        value={firstName}
-                        onChange={handleChange}
-                    />
-                    <input
-                        id="lastNameInput"
-                        name="lastName"
-                        className={
-                            errors.lastName
-                                ? "error half-length-input"
-                                : "half-length-input"
-                        }
-                        placeholder="Enter Last Name"
-                        value={lastName}
-                        onChange={handleChange}
-                    />
-                    <br />
-                    <input
+                    <div className="name-fields">
+                        <Input
+                            element="input"
+                            type="regular"
+                            id="firstNameInput"
+                            placeholder="Enter First Name"
+                            value={firstName}
+                            onChange={handleChange}
+                            name="firstName"
+                            className={
+                                errors.firstName
+                                    ? "error small-input"
+                                    : "small-input"
+                            }
+                        />
+                        <Input
+                            element="input"
+                            type="regular"
+                            id="lastNameInput"
+                            placeholder="Enter Last Name"
+                            value={lastName}
+                            onChange={handleChange}
+                            name="lastName"
+                            className={
+                                errors.lastName
+                                    ? "error small-input"
+                                    : "small-input"
+                            }
+                        />
+                    </div>
+                    <Input
+                        element="input"
+                        type="regular"
                         id="emailInput"
                         name="email"
-                        className={
-                            errors.email
-                                ? "error full-length-input"
-                                : "full-length-input"
-                        }
                         placeholder="Enter E-Mail Address"
                         value={email}
                         onChange={handleChange}
+                        className={errors.email && "error "}
                     />
-                    <br />
-                    <input
+                    <Input
+                        element="input"
+                        type="password"
                         id="passwordInput"
                         name="password"
-                        className={
-                            errors.password
-                                ? "error full-length-input"
-                                : "full-length-input"
-                        }
                         placeholder="Create Password"
-                        type="password"
                         value={password}
                         onChange={handleChange}
+                        className={errors.password && "error "}
                     />
-                    <br />
-                    <input
+                    <Input
+                        element="input"
+                        type="password"
                         id="passwordConfirmationInput"
                         name="passwordConfirmation"
-                        className={
-                            errors.passwordConfirmation
-                                ? "error full-length-input"
-                                : "full-length-input"
-                        }
                         placeholder="Confirm Password"
-                        type="password"
                         value={passwordConfirmation}
                         onChange={handleChange}
+                        className={errors.passwordConfirmation && "error "}
                     />
                     <br />
                     <button

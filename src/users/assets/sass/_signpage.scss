@@ -1,0 +1,72 @@
+.sign-header {
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    padding: 0 1rem;
+    justify-content: space-between;
+    z-index: 50;
+
+    .spacer {
+        flex: 1;
+    }
+    a {
+        text-decoration: none;
+        color: #233750;
+        @media (min-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+}
+.sign-page {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .page-title {
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 1.6rem;
+        text-align: center;
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+    .alt-links {
+        text-align: center;
+    }
+
+    form {
+        margin: 0;
+        padding: 0;
+        height: 70vh;
+
+        .name-fields {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            align-content: space-between;
+            justify-content: space-around;
+        }
+
+        @media (min-width: 768px) {
+            height: 40vh;
+        }
+    }
+    .alt-links {
+        color: #8e8e93;
+
+        a {
+            text-decoration: none;
+            color: #233750;
+        }
+        @media (min-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+}
