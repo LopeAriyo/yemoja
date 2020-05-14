@@ -21,8 +21,31 @@ form {
     .question {
         width: inherit;
         display: flex;
-        flex-direction: inherit;
+        flex-direction: column;
         align-items: center;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 0.6rem;
+        width: 270px;
+        text-align: end;
+
+        @media (min-width: 768px) {
+            width: 410px;
+            font-size: 0.9rem;
+        }
+    }
+
+    .small-error-text {
+        color: red;
+        font-size: 0.6rem;
+        width: 110px;
+        text-align: end;
+        @media (min-width: 768px) {
+            width: 190px;
+            font-size: 0.9rem;
+        }
     }
 
     .question-label {

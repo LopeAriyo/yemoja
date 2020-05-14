@@ -8,7 +8,10 @@ const SignPage = props => {
     return (
         <React.Fragment>
             <header className="sign-header">
-                <div className="left-arrow"> {"<-"} </div>
+                <div className="left-arrow">
+                    {" "}
+                    <Link to="/">{"<-"}</Link>{" "}
+                </div>
                 <Link to={props.altSlug}>{props.altInstruction}</Link>
             </header>
             <main className="sign-page">
