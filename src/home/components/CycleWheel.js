@@ -21,7 +21,7 @@ const CycleWheel = props => {
         <React.Fragment>
             {isFormOpen && (
                 <Modal handleClose={handleFormClose} headerTitle={"Track"}>
-                    <NewPeriod />
+                    <NewPeriod handleClose={handleFormClose} />
                 </Modal>
             )}
             <div className="cycle-wheel">

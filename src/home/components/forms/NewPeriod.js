@@ -40,7 +40,6 @@ const NewPeriod = props => {
         if (isCheckbox) {
             setChecked({
                 newPeriodForm: {
-                    //add to state
                     ...checked.newPeriodForm,
                     [event.target.name]: checked.newPeriodForm[
                         event.target.name
@@ -83,16 +82,20 @@ const NewPeriod = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        console.log(checked.newPeriodForm); //send to the backend
         console.log("I've been submitted");
-        // console.log(formState.inputs); //send to the backend
-        // this.setState({ formData: {} });  reset form
-        //close form
+
+        //on submit return errors if there are any errors.. the error here will be that the date is not unique
+        //if the date is not unique then form has already been submitted.
+        props.handleClose(); //close form close form after submission
     };
 
     const handleReset = event => {
         event.preventDefault();
-        console.log("I've been reset");
-        // this.setState({ formData: {} });
+
+        setChecked({
+            newPeriodForm: {},
+        });
     };
 
     return (
@@ -103,7 +106,7 @@ const NewPeriod = props => {
                         <p>{question.label}</p>
                         <div
                             className="question-options"
-                            id={`question-${question.id}`}
+                            key={`question-${question.id}`}
                         >
                             {question.options.map(option => (
                                 <Checkbox

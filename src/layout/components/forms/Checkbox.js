@@ -6,16 +6,15 @@ const Checkbox = props => {
             <input
                 name={props.questionName}
                 type={props.type}
-                checked={props.checked}
+                checked={
+                    props.formAnswers[props.questionName]
+                        ? props.formAnswers[props.questionName].includes(
+                              props.name
+                          )
+                        : false
+                }
                 onChange={props.handleCheck}
                 value={props.name}
-                // checked={
-                //     props.formAnswers[props.questionName]
-                //         ? props.formAnswers[props.questionName].includes(
-                //               props.name
-                //           )
-                //         : false
-                // }
             />
             {props.label}
         </label>

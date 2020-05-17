@@ -9,11 +9,15 @@
 
 ## App
 
-Visit -- for live application
+Click <a href="https://yemoja.netlify.dev/ ">
 
-## Video Demo
+    here
 
-A preview of all current functionality is here
+</a> for live application
+
+<!-- ## Video Demo
+
+A preview of all current functionality is here -->
 
 ## Features
 
@@ -32,5 +36,5 @@ A preview of all current functionality is here
 -   MongoDB
 -   Express
 -   Node.js
--   React
+-   React (with Hooks)
 -   CSS & SaSS
