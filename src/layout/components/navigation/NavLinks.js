@@ -5,9 +5,9 @@ const NavLinks = props => {
     return (
         <nav className="main-navigation">
             <ul className="nav-links">
-                <li className="nav-link">
+                {/* <li className="nav-link">
                     <NavLink to="/calendar">Calendar</NavLink>
-                </li>
+                </li> */}
                 {/* <li className="nav-link">
                         <Link to="/#contact">Journal</Link>
                     </li> */}
