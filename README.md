@@ -9,9 +9,9 @@
 
 ## App
 
-Click <a href="https://yemoja.netlify.dev/ ">
+Click <a href="https://yemoja.netlify.com/ ">
 
-    here
+   <p> here</p>
 
 </a> for live application
 
