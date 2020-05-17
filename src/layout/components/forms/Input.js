@@ -43,27 +43,6 @@ const Input = props => {
 
     const element =
         props.element === "input" ? (
-            // props.type === "radio" || props.type === "checkbox" ? (
-            //     <div className="question-options" id={props.id}>
-            //         {props.options.map(option => (
-            //             <label key={option.id} className="question-option">
-            //                 <input
-            //                     name={props.id}
-            //                     type={props.type}
-            //                     value={option.id}
-            //                     checked={
-            //                         props.formData[props.id]
-            //                             ? props.formData[props.id].includes(
-            //                                   option.id
-            //                               )
-            //                             : false
-            //                     }
-            //                 />
-            //                 <p>{option.name}</p>
-            //             </label>
-            //         ))}
-            //     </div>
-            // ) : (
             <input
                 id={props.id}
                 type={props.type}
@@ -74,7 +53,6 @@ const Input = props => {
                 value={inputState.value}
             />
         ) : (
-            // )
             <textarea
                 id={props.id}
                 rows={props.rows || 3}
