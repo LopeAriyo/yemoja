@@ -22,18 +22,28 @@ const SignInForm = () => {
         false
     );
 
-    const handleSignIn = event => {
+    const handleSignIn = async event => {
         event.preventDefault();
-        console.log("I've signed in ");
-        console.log(formState.inputs);
 
-        // API.signIn(this.state.email, this.state.password)
-        //     .then(data => {
-        //         if (data.error) throw Error(data.error);
-        //         this.props.signIn(data);
-        //         this.props.history.push("/cycle");
-        //     })
-        //     .catch(error => alert(error));
+        try {
+            const response = await fetch(
+                "http://localhost:5000/api/users/signin",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: formState.inputs.email.value,
+                        password: formState.inputs.password.value,
+                    }),
+                }
+            );
+
+            const responseData = await response.json();
+            console.log(responseData);
+        } catch (err) {
+            alert(err);
+        }
+
         auth.signIn();
     };
 

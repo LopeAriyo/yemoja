@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Input from "../../shared/components/forms/Input";
 import {
@@ -7,8 +7,10 @@ import {
     VALIDATOR_MATCH,
 } from "../../shared/utils/validator";
 import useForm from "../../shared/hooks/form-hook";
+import AuthContext from "../../shared/context/auth-context";
 
 const SignUpForm = () => {
+    const auth = useContext(AuthContext);
     const [formState, handleInput] = useForm(
         {
             firstName: {
@@ -35,17 +37,32 @@ const SignUpForm = () => {
         false
     );
 
-    const handleSignUp = event => {
+    const handleSignUp = async event => {
         event.preventDefault();
-        console.log("I've signed up");
-        console.log(formState.inputs);
-        // API.signUp(newUser)
-        //         //     .then(data => {
-        //         //         if (data.error) throw Error(data.error);
-        //         //     })
-        //         //     .catch(error => alert(error));
+
+        try {
+            const response = await fetch(
+                "http://localhost:5000/api/users/signup",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        first_name: formState.inputs.firstName.value,
+                        last_name: formState.inputs.lastName.value,
+                        email: formState.inputs.email.value,
+                        password: formState.inputs.password.value,
+                    }),
+                }
+            );
+
+            const responseData = await response.json();
+            console.log(responseData);
+        } catch (err) {
+            alert(err);
+        }
+
         alert("Thanks for signing up!");
-        //either reset form or automatically sign in
+        auth.signIn();
     };
 
     return (
