@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import Input from "../../shared/components/forms/Input";
-import { VALIDATOR_REQUIRE } from "../../shared/utils/validator";
-// import API from "../adapters/API";
+import {
+    VALIDATOR_REQUIRE,
+    VALIDATOR_EMAIL,
+    VALIDATOR_MINLENGTH,
+} from "../../shared/utils/validator";
 
 const SignUpForm = () => {
+    const handleNameInput = useCallback((id, value, isValid) => {}, []);
+    const handleEmailInput = useCallback((id, value, isValid) => {}, []);
+    const handlePasswordInput = useCallback((id, value, isValid) => {}, []);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        console.log("I've been submitted");
+    };
+
     return (
         <div>
             <form>
@@ -16,16 +28,10 @@ const SignUpForm = () => {
                         name="firstName"
                         placeholder="Enter First Name"
                         className="small-input"
-                        // className={
-                        //     errors.firstName
-                        //         ? "error small-input"
-                        //         : "small-input"
-                        // }
-                        // value={firstName}
-                        // onChange={handleChange}
-                        validators={[VALIDATOR_REQUIRE()]}
+                        handleInput={handleNameInput}
+                        validators={[VALIDATOR_MINLENGTH(2)]}
                         errorTextClass="small-error-text"
-                        errorText="Cannot be blank"
+                        errorText="First name minimum 2 characters"
                     />
                     <Input
                         element="input"
@@ -34,17 +40,10 @@ const SignUpForm = () => {
                         name="lastName"
                         placeholder="Enter Last Name"
                         className="small-input"
-                        // value={lastName}
-                        // onChange={handleChange}
-
-                        // className={
-                        //     errors.lastName
-                        //         ? "error small-input"
-                        //         : "small-input"
-                        // }
-                        validators={[VALIDATOR_REQUIRE()]}
+                        handleInput={handleNameInput}
+                        validators={[VALIDATOR_MINLENGTH(2)]}
                         errorTextClass="small-error-text"
-                        errorText="Cannot be blank"
+                        errorText="Last name minimum 2 characters"
                     />
                 </div>
                 <Input
@@ -53,11 +52,9 @@ const SignUpForm = () => {
                     id="emailInput"
                     name="email"
                     placeholder="Enter E-Mail Address"
-                    // value={email}
-                    // onChange={handleChange}
-                    // className={errors.email && "error "}
-                    validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Email cannot be blank"
+                    handleInput={handleEmailInput}
+                    validators={[VALIDATOR_EMAIL()]}
+                    errorText="Enter valid email"
                 />
                 <Input
                     element="input"
@@ -65,11 +62,9 @@ const SignUpForm = () => {
                     id="passwordInput"
                     name="password"
                     placeholder="Create Password"
-                    // value={password}
-                    // onChange={handleChange}
-                    // className={errors.password && "error "}
-                    validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Password cannot be blank"
+                    handleInput={handlePasswordInput}
+                    validators={[VALIDATOR_MINLENGTH(6)]}
+                    errorText="Password minimum 6 characters"
                 />
                 <Input
                     element="input"
@@ -77,9 +72,7 @@ const SignUpForm = () => {
                     id="passwordConfirmationInput"
                     name="passwordConfirmation"
                     placeholder="Confirm Password"
-                    // value={passwordConfirmation}
-                    // onChange={handleChange}
-                    // className={errors.passwordConfirmation && "error "}
+                    handleInput={handlePasswordInput}
                     validators={[VALIDATOR_REQUIRE()]}
                     errorText="Password does not match"
                 />
@@ -87,7 +80,7 @@ const SignUpForm = () => {
                 <button
                     className="primary-btn"
                     // disabled={isDisabled}
-                    // onClick={handleSubmit}
+                    onClick={handleSubmit}
                 >
                     <p className="light-text">Sign Up</p>
                 </button>

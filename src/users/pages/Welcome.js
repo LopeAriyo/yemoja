@@ -14,7 +14,7 @@ class Welcome extends React.Component {
                             <p>Your new favourite period tracker</p>
                         </div>
                     </div>
-                    <div className="sign-options">
+                    <div className="auth-options">
                         <Link to="/signup">
                             <button className="primary-btn">
                                 <p>Sign Up</p>

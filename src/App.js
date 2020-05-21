@@ -19,15 +19,15 @@ import SignIn from "./users/pages/SignIn";
 import SignUp from "./users/pages/SignUp";
 
 const App = () => {
-    // const currentUser = null;
-    const currentUser = {
-        id: 1,
-        first_name: "Lopè",
-        last_name: "Ariyo",
-        email: "lopeariyo@faker.com",
-        estimated_period_length: 5,
-        estimated_cycle_length: 30,
-    };
+    const currentUser = null;
+    // const currentUser = {
+    //     id: 1,
+    //     first_name: "Lopè",
+    //     last_name: "Ariyo",
+    //     email: "lopeariyo@faker.com",
+    //     estimated_period_length: 5,
+    //     estimated_cycle_length: 30,
+    // };
 
     const currentCycle = {
         id: 4,

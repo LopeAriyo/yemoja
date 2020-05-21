@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useCallback, useReducer } from "react";
 
 import Input from "../../shared/components/forms/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/utils/validator";
 // import API from "../adapters/API";
 
-//TODO
-//+ Add forgot password functionality
-
 const SignInForm = () => {
+    const handleEmailInput = useCallback((id, value, isValid) => {}, []);
+
+    const handlePasswordInput = useCallback((id, value, isValid) => {}, []);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        console.log("I've been submitted");
+    };
+
     return (
         <div>
             <form>
@@ -17,9 +23,7 @@ const SignInForm = () => {
                     id="emailInput"
                     name="email"
                     placeholder="E-Mail Address"
-                    // className={errors.email && "error "}
-                    // value={email}
-                    // onChange={handleChange}
+                    handleInput={handleEmailInput}
                     validators={[VALIDATOR_REQUIRE()]}
                     errorText="Email cannot be blank"
                 />
@@ -29,18 +33,15 @@ const SignInForm = () => {
                     id="passwordInput"
                     name="password"
                     placeholder="Password"
-                    // className={errors.password && "error "}
-                    // value={password}
-                    // onChange={handleChange}
+                    handleInput={handlePasswordInput}
                     validators={[VALIDATOR_REQUIRE()]}
                     errorText="Password cannot be blank"
                 />
-                {/* <p> Forgot Password? </p> */}
                 <br />
                 <button
                     className="primary-btn"
                     // disabled={isDisabled}
-                    // onClick={handleSubmit}
+                    onClick={handleSubmit}
                 >
                     <p className="dark-text small-text">Sign In</p>
                 </button>

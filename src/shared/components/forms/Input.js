@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 import { validate } from "../../utils/validator";
 
@@ -26,6 +26,13 @@ const Input = props => {
         isTouched: false,
         isValid: props.valid || false,
     });
+
+    const { id, handleInput } = props;
+    const { value, isValid } = inputState;
+
+    useEffect(() => {
+        handleInput(id, value, isValid);
+    }, [id, value, isValid, handleInput]);
 
     const handleChange = event => {
         dispatch({
