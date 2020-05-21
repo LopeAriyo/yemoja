@@ -4,6 +4,7 @@ const VALIDATOR_TYPE_MAXLENGTH = "MAXLENGTH";
 const VALIDATOR_TYPE_MIN = "MIN";
 const VALIDATOR_TYPE_MAX = "MAX";
 const VALIDATOR_TYPE_EMAIL = "EMAIL";
+const VALIDATOR_TYPE_MATCH = "MATCH";
 
 export const VALIDATOR_REQUIRE = () => ({ type: VALIDATOR_TYPE_REQUIRE });
 export const VALIDATOR_MINLENGTH = val => ({
@@ -17,6 +18,10 @@ export const VALIDATOR_MAXLENGTH = val => ({
 export const VALIDATOR_MIN = val => ({ type: VALIDATOR_TYPE_MIN, val: val });
 export const VALIDATOR_MAX = val => ({ type: VALIDATOR_TYPE_MAX, val: val });
 export const VALIDATOR_EMAIL = () => ({ type: VALIDATOR_TYPE_EMAIL });
+export const VALIDATOR_MATCH = val => ({
+    type: VALIDATOR_TYPE_MATCH,
+    val: val,
+});
 
 export const validate = (value, validators) => {
     let isValid = true;
@@ -39,46 +44,9 @@ export const validate = (value, validators) => {
         if (validator.type === VALIDATOR_TYPE_EMAIL) {
             isValid = isValid && /^\S+@\S+\.\S+$/.test(value);
         }
+        if (validator.type === VALIDATOR_TYPE_MATCH) {
+            isValid = isValid && value === validator.val;
+        }
     }
     return isValid;
 };
-
-// validate = (firstName, lastName, email, password, passwordConfirmation) => {
-//     // false means no errors
-//     // true means a field is invalid
-
-//     const firstNameValidation =
-//         firstName.length === 0 || //firstName must be present
-//         firstName.length < 2 ||
-//         firstName.length > 20; //firstName must be between 2 and 20 characters
-
-//     const lastNameValidation =
-//         lastName.length === 0 || //lastName must be present
-//         lastName.length < 2 ||
-//         lastName.length > 20; //lastName must be between 2 and 20 characters
-
-//     const emailValidation = email.length === 0; //email must be present
-//     //email must be unique //not validated here!
-//     //STRETCH - email must be a correct email format
-//     //const emailFormat =
-
-//     const passwordValidation =
-//         password.length === 0 || //password must be present
-//         password.length < 8 ||
-//         password.length > 20; //password must be between 8 and 20 characters
-
-//     //STRETCH - show the user their password strength
-//     //const passwordFormat =
-
-//     const passwordConfirmationValidation =
-//         passwordConfirmation.length === 0 || //passwordConfirmation must be present
-//         passwordConfirmation !== password; //passwordConfirmation must match password
-
-//     return {
-//         firstName: firstNameValidation,
-//         lastName: lastNameValidation,
-//         email: emailValidation,
-//         password: passwordValidation,
-//         passwordConfirmation: passwordConfirmationValidation,
-//     };
-// };
