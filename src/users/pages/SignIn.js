@@ -1,14 +1,11 @@
 import React from "react";
-import SignPage from "./SignPage";
+import Auth from "./Auth";
 
 import SignInForm from "../components/SignInForm";
 
-//TODO - STRETCH
-//+ Add sign in with socials functionality
-
 const SignIn = ({ signIn, history }) => (
     <div className="starter-page">
-        <SignPage
+        <Auth
             pageTitle="Welcome back"
             form={<SignInForm signIn={signIn} history={history} />}
             altPrompt="Don't have an account? "

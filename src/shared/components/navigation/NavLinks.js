@@ -13,7 +13,7 @@ const NavLinks = props => {
                     </li> */}
                 <li className="nav-link">
                     <NavLink to="/" exact>
-                        Home
+                        Cycle
                     </NavLink>
                 </li>
                 {/* <li className="nav-link">

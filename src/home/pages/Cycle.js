@@ -3,7 +3,7 @@ import React from "react";
 import Greeting from "../components/Greeting";
 import CycleContainer from "../components/CycleContainer";
 
-const Home = props => {
+const Cycle = props => {
     return (
         <main>
             {/* <BackgroundIcon /> */}
@@ -17,4 +17,4 @@ const Home = props => {
     );
 };
 
-export default Home;
+export default Cycle;

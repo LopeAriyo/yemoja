@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Input from "../../../layout/components/forms/Input";
-import Checkbox from "../../../layout/components/forms/Checkbox";
+import Checkbox from "../../../shared/components/forms/Checkbox";
 
 const NewPeriod = props => {
     const newPeriodQuestions = [

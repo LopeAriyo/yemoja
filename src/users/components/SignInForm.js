@@ -1,7 +1,7 @@
 import React from "react";
 
-import Input from "../../layout/components/forms/Input";
-import { VALIDATOR_REQUIRE } from "../../layout/utils/validator";
+import Input from "../../shared/components/forms/Input";
+import { VALIDATOR_REQUIRE } from "../../shared/utils/validator";
 // import API from "../adapters/API";
 
 //TODO

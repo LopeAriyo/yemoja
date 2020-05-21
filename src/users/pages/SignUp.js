@@ -1,11 +1,11 @@
 import React from "react";
-import SignPage from "./SignPage";
+import Auth from "./Auth";
 
 import SignUpForm from "../components/SignUpForm.js";
 
 const SignUp = ({ signUp, history }) => (
     <div className="starter-page">
-        <SignPage
+        <Auth
             pageTitle="Create your account"
             form={<SignUpForm signUp={signUp} history={history} />}
             altPrompt="Already have an account? "

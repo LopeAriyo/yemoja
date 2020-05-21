@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import CycleSlider from "./CycleSlider";
 import CycleCard from "./CycleCard";
-import Modal from "../../layout/components/modal/Modal";
+import Modal from "../../shared/components/modal/Modal";
 
 import NewPeriod from "./forms/NewPeriod";
 

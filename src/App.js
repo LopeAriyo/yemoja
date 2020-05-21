@@ -6,11 +6,11 @@ import {
     Switch,
 } from "react-router-dom";
 
-import Layout from "./layout/Layout";
-import "./layout/main.scss";
+import Layout from "./shared/Layout";
+import "./shared/main.scss";
 
-import RouteWithTitle from "./layout/components/navigation/RouteWithTitle";
-import Home from "./home/pages/Home";
+import RouteWithTitle from "./shared/components/navigation/RouteWithTitle";
+import Cycle from "./home/pages/Cycle";
 import Calendar from "./calendar/Calendar";
 import Profile from "./users/pages/Profile";
 
@@ -81,11 +81,11 @@ const App = () => {
                 <Layout>
                     <Switch>
                         <RouteWithTitle
-                            title={"Home"}
+                            title={"Cycle"}
                             exact={true}
                             path="/"
                             component={props => (
-                                <Home
+                                <Cycle
                                     {...props}
                                     user={currentUser}
                                     currentCycle={currentCycle}
