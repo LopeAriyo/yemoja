@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Input from "../../shared/components/forms/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/utils/validator";
 import useForm from "../../shared/hooks/form-hook";
+import AuthContext from "../../shared/context/auth-context";
 // import API from "../adapters/API";
 
 const SignInForm = () => {
+    const auth = useContext(AuthContext);
     const [formState, handleInput] = useForm(
         {
             email: {
@@ -32,6 +34,7 @@ const SignInForm = () => {
         //         this.props.history.push("/cycle");
         //     })
         //     .catch(error => alert(error));
+        auth.signIn();
     };
 
     return (
