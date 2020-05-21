@@ -1,20 +1,50 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 import Input from "../../shared/components/forms/Input";
 import {
-    VALIDATOR_REQUIRE,
     VALIDATOR_EMAIL,
     VALIDATOR_MINLENGTH,
+    VALIDATOR_MATCH,
 } from "../../shared/utils/validator";
+import useForm from "../../shared/hooks/form-hook";
 
 const SignUpForm = () => {
-    const handleNameInput = useCallback((id, value, isValid) => {}, []);
-    const handleEmailInput = useCallback((id, value, isValid) => {}, []);
-    const handlePasswordInput = useCallback((id, value, isValid) => {}, []);
+    const [formState, handleInput] = useForm(
+        {
+            firstName: {
+                value: "",
+                isValid: false,
+            },
+            lastName: {
+                value: "",
+                isValid: false,
+            },
+            email: {
+                value: "",
+                isValid: false,
+            },
+            password: {
+                value: "",
+                isValid: false,
+            },
+            passwordConfirmation: {
+                value: "",
+                isValid: false,
+            },
+        },
+        false
+    );
 
-    const handleSubmit = event => {
+    const handleSignUp = event => {
         event.preventDefault();
-        console.log("I've been submitted");
+        console.log("I've signed up");
+        console.log(formState.inputs.password.value);
+        console.log(formState.inputs.passwordConfirmation.value);
+        // API.signUp(newUser)
+        //         //     .then(data => {
+        //         //         if (data.error) throw Error(data.error);
+        //         //     })
+        //         //     .catch(error => alert(error));
     };
 
     return (
@@ -24,11 +54,11 @@ const SignUpForm = () => {
                     <Input
                         element="input"
                         type="text"
-                        id="firstNameInput"
+                        id="firstName"
                         name="firstName"
                         placeholder="Enter First Name"
                         className="small-input"
-                        handleInput={handleNameInput}
+                        handleInput={handleInput}
                         validators={[VALIDATOR_MINLENGTH(2)]}
                         errorTextClass="small-error-text"
                         errorText="First name minimum 2 characters"
@@ -36,11 +66,11 @@ const SignUpForm = () => {
                     <Input
                         element="input"
                         type="text"
-                        id="lastNameInput"
+                        id="lastName"
                         name="lastName"
                         placeholder="Enter Last Name"
                         className="small-input"
-                        handleInput={handleNameInput}
+                        handleInput={handleInput}
                         validators={[VALIDATOR_MINLENGTH(2)]}
                         errorTextClass="small-error-text"
                         errorText="Last name minimum 2 characters"
@@ -49,38 +79,40 @@ const SignUpForm = () => {
                 <Input
                     element="input"
                     type="text"
-                    id="emailInput"
+                    id="email"
                     name="email"
                     placeholder="Enter E-Mail Address"
-                    handleInput={handleEmailInput}
+                    handleInput={handleInput}
                     validators={[VALIDATOR_EMAIL()]}
                     errorText="Enter valid email"
                 />
                 <Input
                     element="input"
                     type="password"
-                    id="passwordInput"
+                    id="password"
                     name="password"
                     placeholder="Create Password"
-                    handleInput={handlePasswordInput}
+                    handleInput={handleInput}
                     validators={[VALIDATOR_MINLENGTH(6)]}
                     errorText="Password minimum 6 characters"
                 />
                 <Input
                     element="input"
                     type="password"
-                    id="passwordConfirmationInput"
+                    id="passwordConfirmation"
                     name="passwordConfirmation"
                     placeholder="Confirm Password"
-                    handleInput={handlePasswordInput}
-                    validators={[VALIDATOR_REQUIRE()]}
+                    handleInput={handleInput}
+                    validators={[
+                        VALIDATOR_MATCH(formState.inputs.password.value),
+                    ]}
                     errorText="Password does not match"
                 />
                 <br />
                 <button
                     className="primary-btn"
-                    // disabled={isDisabled}
-                    onClick={handleSubmit}
+                    disabled={!formState.isValid}
+                    onClick={handleSignUp}
                 >
                     <p className="light-text">Sign Up</p>
                 </button>
@@ -88,85 +120,5 @@ const SignUpForm = () => {
         </div>
     );
 };
-
-// class SignUpForm extends React.Component {
-//     state = {
-//         firstName: "",
-//         lastName: "",
-//         email: "",
-//         password: "",
-//         passwordConfirmation: "",
-//     };
-
-//     handleChange = event =>
-//         this.setState({ [event.target.name]: event.target.value });
-
-//     canSubmit() {
-//         const {
-//             firstName,
-//             lastName,
-//             email,
-//             password,
-//             passwordConfirmation,
-//         } = this.state;
-
-//         const errors = this.validate(
-//             firstName,
-//             lastName,
-//             email,
-//             password,
-//             passwordConfirmation
-//         );
-
-//         return !Object.keys(errors).some(x => errors[x]);
-//     }
-
-//     handleSubmit = event => {
-//         if (!this.canSubmit()) {
-//             event.preventDefault();
-//             return;
-//         }
-
-//         const newUser = {
-//             first_name: this.state.firstName,
-//             last_name: this.state.lastName,
-//             email: this.state.email,
-//             password: this.state.password,
-//             passwordConfirmation: this.state.passwordConfirmation,
-//         };
-
-//         // API.signUp(newUser)
-//         //     .then(data => {
-//         //         if (data.error) throw Error(data.error);
-//         //     })
-//         //     .catch(error => alert(error));
-//         alert(`Signed Up`);
-//     };
-
-//     render() {
-//         const {
-//             firstName,
-//             lastName,
-//             email,
-//             password,
-//             passwordConfirmation,
-//         } = this.state;
-
-//         const { handleChange, handleSubmit } = this;
-
-//         const errors = this.validate(
-//             firstName,
-//             lastName,
-//             email,
-//             password,
-//             passwordConfirmation
-//         );
-//         const isDisabled = !this.canSubmit();
-
-//         return (
-
-//         );
-//     }
-// }
 
 export default SignUpForm;
