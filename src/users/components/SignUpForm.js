@@ -44,6 +44,8 @@ const SignUpForm = () => {
         //         //         if (data.error) throw Error(data.error);
         //         //     })
         //         //     .catch(error => alert(error));
+        alert("Thanks for signing up!");
+        //either reset form or automatically sign in
     };
 
     return (

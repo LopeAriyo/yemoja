@@ -9,7 +9,8 @@
 
 ## App
 
-Click<p> <a href="https://yemoja.netlify.com/ "> here</a></p> for live application
+Click<p> <a href="https://yemoja.netlify.app/ "> here</a></p> for live application
+To login in use email: testuser@yemoja.com, password: pa1234
 
 <!-- ## Video Demo
 

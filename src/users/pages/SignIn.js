@@ -12,6 +12,8 @@ const SignIn = ({ signIn, history }) => (
             altInstruction="Sign Up"
             altSlug="/signup"
         />
+        <br />
+        <p>Use email: testuser@yemoja.com, password: pa1234</p>
     </div>
 );
 

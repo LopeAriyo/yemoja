@@ -39,9 +39,9 @@ const App = () => {
     if (isSignedIn) {
         currentUser = {
             id: 1,
-            first_name: "Lopè",
+            first_name: "Test User",
             last_name: "Ariyo",
-            email: "lopeariyo@faker.com",
+            email: "testuser@yemoja.com",
             estimated_period_length: 5,
             estimated_cycle_length: 30,
         };
