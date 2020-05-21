@@ -38,8 +38,7 @@ const SignUpForm = () => {
     const handleSignUp = event => {
         event.preventDefault();
         console.log("I've signed up");
-        console.log(formState.inputs.password.value);
-        console.log(formState.inputs.passwordConfirmation.value);
+        console.log(formState.inputs);
         // API.signUp(newUser)
         //         //     .then(data => {
         //         //         if (data.error) throw Error(data.error);
@@ -111,7 +110,7 @@ const SignUpForm = () => {
                 <br />
                 <button
                     className="primary-btn"
-                    disabled={!formState.isValid}
+                    disabled={!formState.isFormValid}
                     onClick={handleSignUp}
                 >
                     <p className="light-text">Sign Up</p>

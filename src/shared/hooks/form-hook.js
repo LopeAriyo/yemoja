@@ -3,12 +3,12 @@ import { useCallback, useReducer } from "react";
 const formReducer = (state, action) => {
     switch (action.type) {
         case "INPUT_CHANGE":
-            let formIsValid = true;
+            let isFormValid = true;
             for (const inputID in state.inputs) {
                 if (inputID === action.inputID) {
-                    formIsValid = formIsValid && action.isValid;
+                    isFormValid = isFormValid && action.isValid;
                 } else {
-                    formIsValid = formIsValid && state.inputs[inputID].isValid;
+                    isFormValid = isFormValid && state.inputs[inputID].isValid;
                 }
             }
             return {
@@ -20,7 +20,12 @@ const formReducer = (state, action) => {
                         isValid: action.isValid,
                     },
                 },
-                isValid: formIsValid,
+                isFormValid: isFormValid,
+            };
+        case "SET_FORM":
+            return {
+                inputs: action.inputs,
+                isFormValid: action.isFormValid,
             };
         default:
             return state;
@@ -30,7 +35,7 @@ const formReducer = (state, action) => {
 const useForm = (initialInputs, initialFormValidity) => {
     const [formState, dispatch] = useReducer(formReducer, {
         inputs: initialInputs,
-        isValid: initialFormValidity,
+        isFormValid: initialFormValidity,
     });
 
     const handleInput = useCallback((id, value, isValid) => {
@@ -42,7 +47,15 @@ const useForm = (initialInputs, initialFormValidity) => {
         });
     }, []);
 
-    return [formState, handleInput];
+    const setFormData = useCallback((inputData, isFormValid) => {
+        dispatch({
+            type: "SET_FORM",
+            inputs: inputData,
+            isFormValid: isFormValid,
+        });
+    });
+
+    return [formState, handleInput, setFormData];
 };
 
 export default useForm;

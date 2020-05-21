@@ -59,7 +59,7 @@ const SignInForm = () => {
             <br />
             <button
                 className="primary-btn"
-                disabled={!formState.isValid}
+                disabled={!formState.isFormValid}
                 onClick={handleSignIn}
             >
                 <p className="dark-text small-text">Sign In</p>
