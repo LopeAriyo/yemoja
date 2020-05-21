@@ -19,6 +19,12 @@
             margin: 1rem;
             font-size: 1.5rem;
         }
+
+        &:disabled {
+            background: #ededed;
+            cursor: auto;
+            color: grey;
+        }
     }
 
     .primary-btn {

@@ -100,7 +100,7 @@ form {
         text-transform: uppercase;
 
         &:disabled {
-            // background: #eeeeee 0%, #e6ebf5 100%);
+            background: #ededed;
             cursor: auto;
             color: grey;
         }

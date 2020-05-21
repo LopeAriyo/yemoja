@@ -4,10 +4,55 @@ import Input from "../../shared/components/forms/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/utils/validator";
 // import API from "../adapters/API";
 
-const SignInForm = () => {
-    const handleEmailInput = useCallback((id, value, isValid) => {}, []);
+const formReducer = (state, action) => {
+    switch (action.type) {
+        case "INPUT_CHANGE":
+            let formIsValid = true;
+            for (const inputID in state.inputs) {
+                if (inputID === action.inputID) {
+                    formIsValid = formIsValid && action.isValid;
+                } else {
+                    formIsValid = formIsValid && state.inputs[inputID].isValid;
+                }
+            }
+            return {
+                ...state,
+                inputs: {
+                    ...state.inputs,
+                    [action.inputID]: {
+                        value: action.value,
+                        isValid: action.isValid,
+                    },
+                },
+                isValid: formIsValid,
+            };
+        default:
+            return state;
+    }
+};
 
-    const handlePasswordInput = useCallback((id, value, isValid) => {}, []);
+const SignInForm = () => {
+    const [formState, dispatch] = useReducer(formReducer, {
+        inputs: {
+            email: {
+                value: "",
+                isValid: false,
+            },
+            password: {
+                value: "",
+                isValid: false,
+            },
+        },
+        isValid: false,
+    });
+    const handleInput = useCallback((id, value, isValid) => {
+        dispatch({
+            type: "INPUT_CHANGE",
+            value: value,
+            isValid: isValid,
+            inputID: id,
+        });
+    }, []);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -15,38 +60,36 @@ const SignInForm = () => {
     };
 
     return (
-        <div>
-            <form>
-                <Input
-                    element="input"
-                    type="text"
-                    id="emailInput"
-                    name="email"
-                    placeholder="E-Mail Address"
-                    handleInput={handleEmailInput}
-                    validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Email cannot be blank"
-                />
-                <Input
-                    element="input"
-                    type="password"
-                    id="passwordInput"
-                    name="password"
-                    placeholder="Password"
-                    handleInput={handlePasswordInput}
-                    validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Password cannot be blank"
-                />
-                <br />
-                <button
-                    className="primary-btn"
-                    // disabled={isDisabled}
-                    onClick={handleSubmit}
-                >
-                    <p className="dark-text small-text">Sign In</p>
-                </button>
-            </form>
-        </div>
+        <form>
+            <Input
+                element="input"
+                type="text"
+                id="email"
+                name="email"
+                placeholder="E-Mail Address"
+                handleInput={handleInput}
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Email cannot be blank"
+            />
+            <Input
+                element="input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                handleInput={handleInput}
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Password cannot be blank"
+            />
+            <br />
+            <button
+                className="primary-btn"
+                disabled={!formState.isValid}
+                onClick={handleSubmit}
+            >
+                <p className="dark-text small-text">Sign In</p>
+            </button>
+        </form>
     );
 };
 
