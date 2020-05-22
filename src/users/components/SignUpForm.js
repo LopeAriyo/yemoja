@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import Input from "../../shared/components/forms/Input";
 import {
@@ -11,6 +11,9 @@ import AuthContext from "../../shared/context/auth-context";
 
 const SignUpForm = () => {
     const auth = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
+
     const [formState, handleInput] = useForm(
         {
             firstName: {
@@ -41,6 +44,7 @@ const SignUpForm = () => {
         event.preventDefault();
 
         try {
+            setIsLoading(true);
             const response = await fetch(
                 "http://localhost:5000/api/users/signup",
                 {
@@ -56,17 +60,23 @@ const SignUpForm = () => {
             );
 
             const responseData = await response.json();
-            console.log(responseData);
-        } catch (err) {
-            alert(err);
-        }
 
-        alert("Thanks for signing up!");
-        auth.signIn();
+            if (!response.ok) {
+                throw new Error(responseData.message);
+            }
+            console.log(responseData);
+            setIsLoading(false);
+            auth.signIn();
+        } catch (err) {
+            console.log(err);
+            setIsLoading(false);
+            setError(err.message || "Something went wrong please try again");
+        }
     };
 
     return (
         <div>
+            {isLoading && <p>Loading.. </p>}
             <form>
                 <div className="name-fields">
                     <Input
@@ -127,9 +137,11 @@ const SignUpForm = () => {
                     errorText="Password does not match"
                 />
                 <br />
+                {error && <p> {error}</p>}
+                <br />
                 <button
                     className="primary-btn"
-                    disabled={!formState.isFormValid}
+                    disabled={!formState.isFormValid || error}
                     onClick={handleSignUp}
                 >
                     <p className="light-text">Sign Up</p>
