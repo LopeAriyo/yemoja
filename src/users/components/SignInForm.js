@@ -45,8 +45,10 @@ const SignInForm = () => {
             const responseData = await response.json();
 
             if (!response.ok) {
-                throw new Error(responseData.message);
+                throw new Error(responseData.user);
             }
+
+            //    console.log(responseData.user.id);
 
             setIsLoading(false);
             auth.signIn();
@@ -90,7 +92,7 @@ const SignInForm = () => {
                 <p className="dark-text small-text">Sign In</p>
             </button>
             <br />
-            <p>Use email: testuser@yemoja.com, password: pa1234</p>
+            <p>Use email: testuser@yemoja.com, password: pa1234 for demo</p>
         </form>
     );
 };
