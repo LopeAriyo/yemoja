@@ -68,7 +68,9 @@ const SignUpForm = () => {
             auth.signIn();
         } catch (err) {
             setIsLoading(false);
-            setError(err.message || "Something went wrong please try again");
+            setError(
+                err.message || "Something went wrong please contact admin"
+            );
         }
     };
 

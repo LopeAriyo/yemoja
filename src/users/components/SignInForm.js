@@ -31,7 +31,7 @@ const SignInForm = () => {
         try {
             setIsLoading(true);
             const response = await fetch(
-                "http://localhost:5000/api/users/signin",
+                "http://localhost:5000/api/auth/signin",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -54,7 +54,9 @@ const SignInForm = () => {
             auth.signIn();
         } catch (err) {
             setIsLoading(false);
-            setError(err.message || "Something went wrong please try again");
+            setError(
+                err.message || "Something went wrong please contact admin"
+            );
         }
     };
 
@@ -82,7 +84,7 @@ const SignInForm = () => {
                 errorText="Please enter your password"
             />
             <br />
-            {error && <p> {error}</p>}
+            {error && <p className="error-text"> {error}</p>}
             <br />
             <button
                 className="primary-btn"
@@ -92,7 +94,10 @@ const SignInForm = () => {
                 <p className="dark-text small-text">Sign In</p>
             </button>
             <br />
-            <p>Use email: testuser@yemoja.com, password: pa1234 for demo</p>
+            <p>This app is for demo purposes. </p>
+            <p>Creating an account is optional. Use </p>
+            <p>Email: testuser@yemoja.com </p>
+            <p>password: pa1234 for demo</p>
         </form>
     );
 };
