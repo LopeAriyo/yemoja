@@ -94,10 +94,6 @@ const SignInForm = () => {
                 <p className="dark-text small-text">Sign In</p>
             </button>
             <br />
-            <p>This app is for demo purposes. </p>
-            <p>Creating an account is optional. Use </p>
-            <p>Email: testuser@yemoja.com </p>
-            <p>password: pa1234 for demo</p>
         </form>
     );
 };

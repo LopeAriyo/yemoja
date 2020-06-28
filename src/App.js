@@ -22,22 +22,24 @@ import AuthContext from "./shared/context/auth-context";
 
 const App = () => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState();
+    const [userPending, setUserPending] = useState(false);
+    // const [error, setError] = useState();
     const [currentUser, setCurrentUser] = useState();
 
-    const signin = useCallback(() => {
+    const signin = useCallback(data => {
         setIsSignedIn(true);
+        console.log(data);
     }, []);
 
     const signout = useCallback(() => {
         setIsSignedIn(false);
+        // setUserPending(false);
     }, []);
 
     useEffect(() => {
         // if (isSignedIn) {
         const request = async () => {
-            setIsLoading(true);
+            setUserPending(true);
             try {
                 const response = await fetch(
                     "http://localhost:5000/api/users/5ec6ead61ec313a99959ac79"
@@ -48,9 +50,9 @@ const App = () => {
                 }
                 // console.log(responseData.user);
                 setCurrentUser(responseData.user);
-                setIsLoading(false);
+                setUserPending(false);
             } catch {
-                setIsLoading(false);
+                setUserPending(false);
                 // setError(error.message);
             }
         };
