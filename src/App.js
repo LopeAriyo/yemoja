@@ -45,7 +45,7 @@ const App = () => {
             // setUserPending(true);
             try {
                 const response = await fetch(
-                    "http://localhost:5000/api/users/5ec6ead61ec313a99959ac79"
+                    "https://yemoja.herokuapp.com/api/users/5ec6ead61ec313a99959ac79"
                 );
                 const responseData = await response.json();
                 if (!response.ok) {

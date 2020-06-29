@@ -31,7 +31,7 @@ const SignInForm = () => {
         try {
             setIsLoading(true);
             const response = await fetch(
-                "http://localhost:5000/api/auth/signin",
+                "https://yemoja.herokuapp.com/api/auth/signin",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
